@@ -33,7 +33,7 @@ class ProductController extends BashController
 
         $validator = Validator::make($input, [
             'name' => 'required',
-            'detail' => 'required'
+            'price' => 'required'
         ]);
 
         if ($validator->fails()) {

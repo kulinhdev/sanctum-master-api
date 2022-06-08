@@ -13,23 +13,24 @@ class AuthController extends BashController
 
     public function me()
     {
+        dd('acb');
     }
 
-    // public function register(Request $request)
-    // {
-    //    $request->validate([
-    //         'email' => 'email|required',
-    //         'password' => 'required'
-    //     ]);
+    public function register(Request $request)
+    {
+        $request->validate([
+            'email' => 'email|required',
+            'password' => 'required'
+        ]);
 
-    //     $input = $request->all();
-    //     $input['password'] = bcrypt($input['password']);
-    //     $user = User::create($input);
-    //     $success['token'] =  $user->createToken('authToken')->plainTextToken;
-    //     $success['name'] =  $user->name;
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
+        $success['token'] =  $user->createToken('authToken')->plainTextToken;
+        $success['name'] =  $user->name;
 
-    //     return $this->sendResponse($success, 'User register successfully.');
-    // }
+        return $this->sendResponse($success, 'User register successfully.');
+    }
 
     public function login(Request $request)
     {
