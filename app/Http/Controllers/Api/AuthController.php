@@ -13,7 +13,7 @@ class AuthController extends BashController
 
     public function me()
     {
-        dd('acb');
+        return auth()->user();
     }
 
     public function register(Request $request)
